@@ -17,16 +17,17 @@ const { NotImplementedError } = require('../extensions/index.js');
 function countCats(matrix) {
   let count =0;
   matrix.forEach((arr) => {
-    if(arr.indexOf("^^")!=-1) {
-      
-      count = count+1;
-    } else {
-     count = count;
-    }
-  })
-return count;
- 
-}
+    arr.forEach((element) => {
+        if (element === '^^'){
+            count = count+1;
+        } else {
+            count = count;
+        }
+    })
+    })
+    return count;
+  }
+
  
 
 
