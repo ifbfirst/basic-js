@@ -18,15 +18,13 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
-  let res2;
-let num = Number(sampleActivity);
-if(typeof num !== Number ){
+  let res;
+let num = parseFloat(sampleActivity);
+if(isNaN(num) || num <= 0 || num > 15){
   return false;
 } else{
-  let res1 = 15 / num;
-  let k = 0.693 / 5730;
-  res2 = Math.log(res1)/k;
-  return res2;
+  res = Math.ceil((Math.log(MODERN_ACTIVITY / num) * HALF_LIFE_PERIOD) / Math.log(2));
+  return res;
 }
 }
 
